@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://hnwi7fy5u1dq"]
+
+[ext_resource type="PackedScene" uid="uid://b21sjqmekc1g6" path="res://house.glb" id="1_hfkix"]
+[ext_resource type="Script" uid="uid://n7r7k8yupsjh" path="res://house.gd" id="2_metfq"]
+
+[node name="house" instance=ExtResource("1_hfkix")]
+script = ExtResource("2_metfq")
+
+[node name="chair_002" parent="." index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5511, 0.477764, -4.6623)

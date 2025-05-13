@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://rfa177lsw0ux"]
+
+[ext_resource type="PackedScene" uid="uid://kfum5fi270tj" path="res://char.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://hnwi7fy5u1dq" path="res://house.tscn" id="2_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+ambient_light_color = Color(0.937166, 0.727662, 0.477637, 1)
+tonemap_mode = 4
+tonemap_exposure = 1.5
+ssr_enabled = true
+ssr_fade_in = 1.37844
+ssao_enabled = true
+ssao_intensity = 4.02
+ssil_radius = 11.06
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.0488281
+sdfgi_y_scale = 0
+sdfgi_energy = 0.2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.39
+fog_light_color = Color(0.268862, 0.294321, 0.334342, 1)
+fog_light_energy = 0.4
+fog_sun_scatter = 0.5
+fog_density = 0.001
+fog_aerial_perspective = 0.116
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.733333, 0.631373, 0.631373, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="house" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Char" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(0.843701, 7.40765e-05, -0.536814, -0.000688972, 0.999999, -0.000944851, 0.536813, 0.00116702, 0.8437, 2.18395, 0.0150725, -6.25359)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4366, 17.4437, 0)
+light_color = Color(0.804197, 0.911673, 1, 1)
+light_energy = 10.0
+omni_range = 161.364
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0xm2m")
