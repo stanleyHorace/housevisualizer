@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://rfa177lsw0ux"]
+[gd_scene load_steps=7 format=3 uid="uid://rfa177lsw0ux"]
 
+[ext_resource type="Script" uid="uid://bgfks0h3kxwny" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://kfum5fi270tj" path="res://char.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://hnwi7fy5u1dq" path="res://house.tscn" id="2_h2yge"]
 
@@ -11,13 +12,9 @@ sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 2
 sky = SubResource("Sky_h2yge")
-ambient_light_color = Color(0.937166, 0.727662, 0.477637, 1)
-tonemap_mode = 4
-tonemap_exposure = 1.5
+tonemap_mode = 1
 ssr_enabled = true
-ssr_fade_in = 1.37844
 ssao_enabled = true
-ssao_intensity = 4.02
 ssil_radius = 11.06
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
@@ -25,17 +22,21 @@ sdfgi_min_cell_size = 0.0488281
 sdfgi_y_scale = 0
 sdfgi_energy = 0.2
 glow_enabled = true
-glow_normalized = true
-glow_intensity = 0.39
+glow_levels/1 = 0.1
+glow_levels/3 = 0.5
+glow_levels/5 = 0.5
+glow_levels/7 = 0.1
+glow_intensity = 0.46
 fog_light_color = Color(0.268862, 0.294321, 0.334342, 1)
 fog_light_energy = 0.4
 fog_sun_scatter = 0.5
 fog_density = 0.001
 fog_aerial_perspective = 0.116
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.733333, 0.631373, 0.631373, 1)
+volumetric_fog_density = 0.005
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_h2yge")
 
 [node name="house" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
@@ -44,12 +45,22 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 transform = Transform3D(0.843701, 7.40765e-05, -0.536814, -0.000688972, 0.999999, -0.000944851, 0.536813, 0.00116702, 0.8437, 2.18395, 0.0150725, -6.25359)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4366, 17.4437, 0)
-light_color = Color(0.804197, 0.911673, 1, 1)
-light_energy = 10.0
-omni_range = 161.364
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.820959, 11.4268, 0)
+light_energy = 2.0
+light_indirect_energy = 0.0
+light_size = 0.59
+light_specular = 0.0
+omni_range = 169.457
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77319, 15.345, -20.0813)
+light_energy = 0.2
+light_indirect_energy = 0.0
+light_specular = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -2.43662, 5.52213, -3.74276)
+fov = 102.1

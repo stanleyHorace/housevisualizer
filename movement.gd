@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var cam: Camera3D= $Camera3D
-var SPEED := 3.5
+@export var SPEED := 3
 var initial_position := Vector3.ZERO
 @export var GRAVITY := 9.8
 @export var SENSITIVITY := 0.003

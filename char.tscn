@@ -66,6 +66,16 @@ script = ExtResource("1_njpxk")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0.128301, 1.65126, -0.0855193)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+transform = Transform3D(1, -1.47398e-08, -9.80831e-10, 1.474e-08, 0.991202, 0.132359, -9.7875e-10, -0.132359, 0.991202, 5.21541e-08, 3.22426, 1.69442)
+light_color = Color(0.939906, 0.869507, 0.930349, 1)
+light_energy = 0.2
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+spot_range = 9.4728
+spot_attenuation = 0.0
+spot_angle = 72.5327
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83976, -0.0292506)
 shape = SubResource("CapsuleShape3D_hs5vj")
